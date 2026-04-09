@@ -46,7 +46,7 @@ function createTicket(counter, arr) {
         if(currentAnswer === el["Верный Вариант"]){
             counterRight++
         }
-        document.body.textContent = ""
+        mainElement.textContent = ""
         counter++
         if(counter < arr.length){
             createTicket(counter, quiz)
