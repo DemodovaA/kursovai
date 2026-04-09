@@ -1,3 +1,5 @@
+import html2canvas from './node_modules/html2canvas/dist/html2canvas.esm.js';
+
 import quiz from "./quiz.json" with { type: 'json' };
 // console.log(quiz.length);
 let counter = 0
@@ -58,6 +60,44 @@ function createTicket(counter, arr) {
     })
     mainElement.appendChild(btn);
 
+    //Анимация
+let cutBtn = document.createElement("button");
+    cutBtn.classList.add("cut_button");
+    cutBtn.textContent = "обрезать";
+    mainElement.appendChild(cutBtn);
+const screen = document.getElementById('split-screen');
+const imgTop = document.getElementById('part-top');
+const imgBottom = document.getElementById('part-bottom');
+
+cutBtn.onclick = async () => {
+    // Сбрасываем старую анимацию, если она была запущена ранее
+    screen.classList.remove('cut-active');
+    screen.style.display = 'none';
+    mainElement.style.visibility = 'visible';
+
+    const rect = mainElement.getBoundingClientRect();
+    const h = rect.height / 2;
+
+    // Делаем два скриншота (консоль будет выводить лог html2canvas)
+    const canvas1 = await html2canvas(mainElement, { y: 0, height: h });
+    const canvas2 = await html2canvas(mainElement, { y: h, height: h });
+
+    imgTop.src = canvas1.toDataURL();
+    imgBottom.src = canvas2.toDataURL();
+
+    // Позиционируем по вертикали
+    imgTop.style.top = rect.top + 'px';
+    imgBottom.style.top = (rect.top + h) + 'px';
+
+    // Включаем слой и скрываем оригинал
+    screen.style.display = 'block';
+    mainElement.style.visibility = 'hidden';
+    
+    // Запускаем движение
+    requestAnimationFrame(() => {
+        screen.classList.add('cut-active');
+    });
+};
 }
 
 createTicket(counter, quiz)

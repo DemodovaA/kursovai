@@ -50,3 +50,31 @@ ul{
   
 }
 
+#split-screen {
+    position: fixed;
+    top: 0;
+    left: 30%;   /* Как в вашем body */
+    right: 30%;  /* Как в вашем body */
+    max-width: 1000px; /* Как в вашем body */
+    margin: 0 auto;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.slice {
+    position: absolute;
+    width: 100%; /* Заполнит всю ширину доступную в 1000px */
+    left: 0;
+    transition: transform 1s ease-in, opacity 0.8s;
+}
+
+/* Анимация при активации класса */
+.cut-active #part-top {
+    transform: translateY(-120vh) rotate(-5deg);
+    opacity: 0;
+}
+
+.cut-active #part-bottom {
+    transform: translateY(120vh) rotate(5deg);
+    opacity: 0;
+}
