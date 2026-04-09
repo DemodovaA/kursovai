@@ -1,4 +1,5 @@
 import quiz from "./quiz.json" with { type: 'json' };
+// console.log(quiz.length);
 let counter = 0
 let counterRight = 0
 let currentAnswer = ""
@@ -6,12 +7,13 @@ function createTicket(counter, arr) {
     let el = arr[counter]
     let div = document.createElement("div");
     div.classList.add("conteiner");
-    let h1 = document.createElement("h1")
-    let h2 = document.createElement("h2")
-    div.appendChild(h2)
+    let h1 = document.createElement("h1");
+    let text_counter = document.createElement("p");
+    text_counter.classList.add("text_counter");
+    div.appendChild(text_counter)
     div.appendChild(h1)
     h1.textContent = el["Вопрос"]
-    h2.textContent = "Номер вопроса " + el["Номер вопроса"]
+    text_counter.textContent = "Вопрос " + el["Номер вопроса"] + "/" + quiz.length
     for(let i = 0; i < 4; ++i){
         let input = document.createElement("input")
         input.addEventListener("click", () => {
@@ -55,6 +57,9 @@ function createTicket(counter, arr) {
         }
     })
     mainElement.appendChild(btn);
+
 }
 
 createTicket(counter, quiz)
+
+
