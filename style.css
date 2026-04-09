@@ -1,7 +1,11 @@
 body {
-    margin-left: 4rem;
+    
     max-width: 1000px;
-    min-width: ;
+    box-sizing: border-box;
+    /* display: flex;
+    flex-direction: row; */
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 
@@ -9,6 +13,18 @@ body {
     max-width: 100px;
 }
 
-.{
-    padding: 100px;
+main{
+    border: 5px solid red; 
+    border-radius: 15px;
+    padding: 20px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.conteiner{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
 }

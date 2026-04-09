@@ -22,17 +22,22 @@ function createTicket(counter, arr) {
         ////Создание полей ответов
         let br = document.createElement("br")
         let span = document.createElement("span")
+        span.classList.add("span_text");
         input.setAttribute("type", "radio")
         input.setAttribute("class", "answer_input")
         input.setAttribute("name", el["Номер вопроса"])
-        let label = document.createElement("label")
+        let list = document.createElement("ul")
+        let list_item = document.createElement("li")
         span.textContent = el[`Вариант ${i + 1}`]
-        label.appendChild(input)
-        label.appendChild(span)
-        label.appendChild(br)
-        div.appendChild(label)
+        list_item.appendChild(input)
+        list_item.appendChild(span)
+        list_item.appendChild(br)
+        list.appendChild(list_item)
+        div.appendChild(list)
     }
-    document.body.appendChild(div)
+    const mainElement = document.querySelector('main');
+    mainElement.appendChild(div);
+
 
     let btn = document.createElement("button")
     btn.classList.add("answer_button");
@@ -49,7 +54,7 @@ function createTicket(counter, arr) {
             alert(`Правильных овтетов ${counterRight}`)
         }
     })
-    document.body.append(btn)
+    mainElement.appendChild(btn);
 }
 
 createTicket(counter, quiz)
