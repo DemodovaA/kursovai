@@ -4,7 +4,8 @@ let counterRight = 0
 let currentAnswer = ""
 function createTicket(counter, arr) {
     let el = arr[counter]
-    let div = document.createElement("div")
+    let div = document.createElement("div");
+    div.classList.add("conteiner");
     let h1 = document.createElement("h1")
     let h2 = document.createElement("h2")
     div.appendChild(h2)
@@ -15,11 +16,14 @@ function createTicket(counter, arr) {
         let input = document.createElement("input")
         input.addEventListener("click", () => {
             currentAnswer = el[`Вариант ${i + 1}`]
+            ///Проверка считываемости ответа
             console.log(currentAnswer);
         })
+        ////Создание полей ответов
         let br = document.createElement("br")
         let span = document.createElement("span")
         input.setAttribute("type", "radio")
+        input.setAttribute("class", "answer_input")
         input.setAttribute("name", el["Номер вопроса"])
         let label = document.createElement("label")
         span.textContent = el[`Вариант ${i + 1}`]
@@ -31,6 +35,7 @@ function createTicket(counter, arr) {
     document.body.appendChild(div)
 
     let btn = document.createElement("button")
+    btn.classList.add("answer_button");
     btn.textContent = "Ответить"
     btn.addEventListener("click", () => {
         if(currentAnswer === el["Верный Вариант"]){
@@ -48,4 +53,3 @@ function createTicket(counter, arr) {
 }
 
 createTicket(counter, quiz)
-
