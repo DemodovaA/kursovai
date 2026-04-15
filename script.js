@@ -18,6 +18,7 @@ function createTicket(counter, arr) {
     div.appendChild(h1)
     h1.textContent = el["Вопрос"]
     text_counter.textContent = "Вопрос " + el["Номер вопроса"] + "/" + quiz.length
+    let list = document.createElement("ul")
     for(let i = 0; i < 4; ++i){
         let input = document.createElement("input")
         input.addEventListener("click", () => {
@@ -32,7 +33,7 @@ function createTicket(counter, arr) {
         input.setAttribute("type", "radio")
         input.setAttribute("class", "answer_input")
         input.setAttribute("name", el["Номер вопроса"])
-        let list = document.createElement("ul")
+        
         let list_item = document.createElement("li")
         span.textContent = el[`Вариант ${i + 1}`]
         list_item.appendChild(input)

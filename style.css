@@ -1,5 +1,5 @@
 body {
-    max-width: 1000px;
+    max-width: 840px;
     /* box-sizing: border-box; */
 
     /* display: flex;
@@ -7,6 +7,10 @@ body {
     margin-left: 30%;
     margin-right: 30%;
     background-color: rgb(215, 240, 243);
+}
+
+.testHide{
+    visibility: hidden;
 }
 
 .header_content{
@@ -60,17 +64,31 @@ body {
     border: 1px solid rgb(25, 78, 94);
 }
 
-
 ul{
+padding: 0;
+
+}
+
+
+li{
     list-style-type: none;
     border-radius: 10px;
     padding: 10px;
     /* box-shadow: -2px 1px 5px black; */
     border: 1px solid rgb(25, 78, 94);
+    margin-bottom: 1rem;
 }
 
 .conteiner {
   
+}
+
+.add_button{
+    background-color: aliceblue;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgb(25, 78, 94);
 }
 
 #split-screen {
