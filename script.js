@@ -47,6 +47,8 @@ function createTicket(counter, arr) {
     const mainElement = document.querySelector('main');
     mainElement.appendChild(div);
 
+    const counter_point = document.getElementById('counter_point');
+    counter_point.textContent = "Правильно: " + counterRight + "/" + quiz.length
 
     let btn = document.createElement("button")
     btn.classList.add("answer_button");
